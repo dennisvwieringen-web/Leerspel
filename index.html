@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FotoLeerSpel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>📚 FotoLeerSpel</h1>
+    <p class="subtitle">Upload foto's van je lesstof en maak er direct een quiz van.</p>
+
+    <section class="card">
+      <h2>1) Voeg een kaart toe</h2>
+      <form id="card-form">
+        <label>
+          Foto van lesstof
+          <input id="photo-input" type="file" accept="image/*" required />
+        </label>
+        <label>
+          Vraag
+          <input id="question-input" type="text" placeholder="Bijv. Wat is fotosynthese?" required />
+        </label>
+        <label>
+          Antwoord
+          <textarea id="answer-input" rows="3" placeholder="Typ het correcte antwoord" required></textarea>
+        </label>
+        <button type="submit">Kaart opslaan</button>
+      </form>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>2) Start quiz</h2>
+      <button id="start-btn">Start met overhoren</button>
+      <p class="muted">Je krijgt telkens de foto + vraag. Typ je antwoord en ontvang meteen feedback.</p>
+    </section>
+
+    <section id="quiz" class="card hidden" aria-live="polite">
+      <h2>Quiz</h2>
+      <div class="progress-row">
+        <span id="progress"></span>
+        <span id="score"></span>
+      </div>
+      <img id="quiz-image" alt="Lesstof afbeelding" />
+      <p id="quiz-question" class="question"></p>
+      <input id="quiz-answer" type="text" placeholder="Jouw antwoord..." />
+      <div class="button-row">
+        <button id="check-btn">Controleer</button>
+        <button id="next-btn" class="secondary" disabled>Volgende</button>
+      </div>
+      <p id="feedback" class="feedback"></p>
+      <p id="correct-answer" class="correct-answer"></p>
+    </section>
+
+    <section class="card">
+      <h2>Opgeslagen kaarten</h2>
+      <ul id="card-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
